@@ -109,10 +109,9 @@ def train_and_eval(train_data, unif_train_data, val_data, test_data, device = 'c
                 # step 1: update imptation error model
                 imputation_model.train()
 
-                e_hat = imputation_model(users_train, items_train) # imputation error
-                e = y_train - model(users_train, items_train) # prediction error
-                cost_e = none_criterion(e_hat, e) # the cost of error, i.e., the difference between imputaiton error and prediction error
-                loss_imp = torch.mean(inverse_p * cost_e) + imputation_model_args['weight_decay'] * imputation_model.l2_norm(users_train, items_train)
+                e_hat = imputation_model(users_unif, items_unif) # imputation error
+                e = y_train - model(users_unif, items_unif) # prediction error
+                loss_imp = sum_criterion(e_hat, e) + imputation_model_args['weight_decay'] * imputation_model.l2_norm(users_train, items_train)
 
                 # print(loss_imp)
                 imputation_optimizer.zero_grad()
