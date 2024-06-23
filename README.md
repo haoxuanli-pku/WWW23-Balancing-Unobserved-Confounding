@@ -4,10 +4,40 @@
 We provide Coat dataset and Music dataset in the "datasets" folder. "random.txt" denotes unbiased data, and "user.txt" denotes biased data. 
 
 ## To run the code
-Taking BAL-Autodebias as an example, the following command can be run directly: \
-`python BAL-AD_coat.py`\
-`python BAL-AD_music.py`\
+Taking BAL-Autodebias as an example:
+
+
+- For Coat:
+
+
+Run the code:
+
+```shell
+python BAL-AD.py --dataset coat
+```
+
+- For Music:
+
+
+Run the code:
+
+```shell
+python BAL-AD.py --dataset music
+```
+
+
 All methods can be run in a similar way, and we also include several baseline methods in the "baselines" folder.
+
+
+## Environment Requirement
+
+The code runs well at python 3.8.18. The required packages are as follows:
+-   pytorch == 1.9.0
+-   numpy == 1.24.4 
+-   scipy == 1.10.1
+-   pandas == 2.0.3
+-   scikit-learn == 1.3.2
+
 
 ## Citation
 If you find our code helpful, please kindly cite:
@@ -21,13 +51,3 @@ If you find our code helpful, please kindly cite:
 }
 ```
 
-## Reference
-```
-@inproceedings{chen2021autodebias,
-  title={AutoDebias: Learning to debias for recommendation},
-  author={Chen, Jiawei and Dong, Hande and Qiu, Yang and He, Xiangnan and Xin, Xin and Chen, Liang and Lin, Guli and Yang, Keping},
-  booktitle={Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval},
-  pages={21--30},
-  year={2021}
-}
-```
